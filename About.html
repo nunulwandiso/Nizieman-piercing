@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Nizie Piercing</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Instagram Icon (same as Home) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <a href="index.html">
+      <img src="Assets/logo.png" alt="Nizie Logo">
+    </a>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Services.html">Services</a></li>
+    <li><a href="Gallery.html">Gallery</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section (same layout style as Home) -->
+<div class="hero" style="background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+url('Assets/hero.png') center/cover no-repeat;">
+  <h2>About Nizie Piercing</h2>
+  <p>Luxury. Precision. Professionalism.</p>
+</div>
+
+<!-- About Content Section -->
+<section>
+  <h2>Our Story</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Our Mission</h3>
+      <p>
+        To provide safe, precise, and high-end body piercing services in a clean
+        and welcoming environment.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Our Standards</h3>
+      <p>
+        We use single-use sterile needles, hospital-grade sterilization, and
+        follow strict hygiene protocols.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Our Vision</h3>
+      <p>
+        To become a leading luxury piercing studio known for excellence,
+        artistry, and client confidence.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="premium-footer">
+
+<p>© 2026 Nizie Piercing</p>
+
+<p class="developer-credit">
+    Website Designed & Developed by
+    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+        Lwandiso Nunu
+    </a>
+    |
+    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+        View Portfolio
+    </a>
+</p>
+
+</footer>   
+
+<a href="https://wa.me/27680266883" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav-links").classList.toggle("active");
+}
+
+/* Navbar scroll effect (same as Home) */
+window.addEventListener("scroll", function(){
+  const nav = document.querySelector("nav");
+  nav.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>

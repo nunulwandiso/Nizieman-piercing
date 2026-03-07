@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Nizie Piercing</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome (for WhatsApp icon) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <a href="index.html">
+      <img src="Assets/logo.png" alt="Nizie Logo">
+    </a>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Services.html">Services</a></li>
+    <li><a href="Gallery.html">Gallery</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero" style="background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+url('Assets/hero.png') center/cover no-repeat;">
+  <h2>Our Services</h2>
+  <p>Luxury Piercing • Professional Care • Transparent Pricing</p>
+</div>
+
+<!-- Services Section -->
+<section>
+<h2>Piercing Services & Pricing</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Ear Piercings</h3>
+    <ul style="list-style:none; margin-top:1rem; color: var(--gray); line-height:1.8;">
+      <li>Conch – R80</li>
+      <li>Flat – R80</li>
+      <li>Helix – R100</li>
+      <li>Tragus – R80</li>
+      <li>Earlobes – R100</li>
+      <li>Industrial – R150</li>
+      <li>Snug – R100</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Facial & Body</h3>
+    <ul style="list-style:none; margin-top:1rem; color: var(--gray); line-height:1.8;">
+      <li>Nose – R100</li>
+      <li>Septum – R100</li>
+      <li>Bridge – R100</li>
+      <li>Eyebrows – R100</li>
+      <li>Ashley – R150</li>
+      <li>Belly – R150</li>
+      <li>Medusa – R150</li>
+      <li>Labret – R150</li>
+      <li>Monroe - R150</li>
+    </ul>
+  </div>
+
+</div>
+</section>
+
+<footer class="premium-footer">
+
+<p>© 2026 Nizie Piercing</p>
+
+<p class="developer-credit">
+    Website Designed & Developed by
+    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+        Lwandiso Nunu
+    </a>
+    |
+    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+        View Portfolio
+    </a>
+</p>
+
+</footer> 
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/27680266883" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav-links").classList.toggle("active");
+}
+
+/* Navbar scroll effect */
+window.addEventListener("scroll", function(){
+  const nav = document.querySelector("nav");
+  nav.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>

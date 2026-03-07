@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nizie Piercing | Ultra Luxury Studio</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ===== ULTRA LUXURY HERO ===== */
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+              url("Assets/hero.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+.hero .btn {
+  padding: 14px 40px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  background: rgba(0,0,0,0.6);
+  color: var(--gold);
+  transition: all 0.4s ease;
+}
+
+.hero .btn:hover {
+  background: var(--gold);
+  color: black;
+  box-shadow: 0 0 25px rgba(212,175,55,0.6);
+}
+
+/* ===== SIGNATURE SECTION ===== */
+
+.signature {
+  padding: 100px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.signature h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.signature p {
+  opacity: 0.75;
+  line-height: 1.8;
+}
+
+/* ===== PREMIUM CARDS ===== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 40px;
+  padding: 80px 10%;
+}
+
+.card {
+  background: #111;
+  padding: 40px;
+  border: 1px solid #222;
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--gold);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.card p {
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+/* PREMIUM TESTIMONIAL SECTION */
+
+.testimonial {
+  padding: 120px 20px;
+  background: #0d0d0d;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.testimonial-slide {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.testimonial-slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.testimonial p {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  opacity: 0.85;
+}
+
+.testimonial span {
+  display: block;
+  margin-top: 25px;
+  letter-spacing: 2px;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <a href="index.html">
+      <img src="Assets/logo.png" alt="Nizie Logo">
+    </a>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Services.html">Services</a></li>
+    <li><a href="Gallery.html">Gallery</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 id="typing-text"></h1>
+    <a href="Contact.html" class="btn">Reserve Your Appointment</a>
+  </div>
+</section>
+
+<!-- SIGNATURE MESSAGE -->
+<section class="signature">
+  <h2>Crafted With Precision</h2>
+  <p>
+    At Nizie Piercing, we redefine body art through precision, sterile excellence, 
+    and a curated luxury experience. Every piercing is placed with anatomical accuracy 
+    and artistic intention — because confidence deserves perfection.
+  </p>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section>
+  <div class="grid">
+    <div class="card">
+      <h3>Hospital-Grade Hygiene</h3>
+      <p>Single-use sterile needles and premium sterilization protocols.</p>
+    </div>
+    <div class="card">
+      <h3>Refined Environment</h3>
+      <p>Minimal, calm, private and designed for comfort.</p>
+    </div>
+    <div class="card">
+      <h3>Luxury Precision</h3>
+      <p>Expert placement tailored to your anatomy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREMIUM ROTATING TESTIMONIALS -->
+<section class="testimonial">
+
+  <div class="testimonial-container">
+
+    <div class="testimonial-slide active">
+      <p>
+        “From the moment I arrived, everything felt intentional and refined.
+        The hygiene standards were exceptional, and the precision was flawless.”
+      </p>
+      <span>— Thando M.</span>
+    </div>
+
+    <div class="testimonial-slide">
+      <p>
+        “Professional, calm, and incredibly meticulous.
+        The attention to detail and luxury atmosphere made the entire experience outstanding.”
+      </p>
+      <span>— Aphiwe K.</span>
+    </div>
+
+    <div class="testimonial-slide">
+  <p>
+    “The entire experience felt private, calm, and exceptionally professional.
+    The environment alone reflects true luxury standards.”
+  </p>
+  <span>— Naledi S.</span>
+</div>
+
+<div class="testimonial-slide">
+  <p>
+    “Clean, elegant, and highly professional.
+    It’s rare to find this level of care and refinement in one place.”
+  </p>
+  <span>— Verified Client</span>
+</div>
+
+<div class="testimonial-slide">
+  <p>
+    “Clean, elegant, and highly professional.
+    It’s rare to find this level of care and refinement in one place.”
+  </p>
+  <span>— Verified Client</span>
+</div>
+
+    <div class="testimonial-slide">
+      <p>
+        “An unmatched level of professionalism and cleanliness.
+        The experience felt exclusive and refined from start to finish.”
+      </p>
+      <span>— Verified Client</span>
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="premium-footer">
+
+<p>© 2026 Nizie Piercing</p>
+
+<p class="developer-credit">
+    Website Designed & Developed by
+    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+        Lwandiso Nunu
+    </a>
+    |
+    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+        View Portfolio
+    </a>
+</p>
+
+</footer> 
+
+<a href="https://wa.me/27680266883" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav-links").classList.toggle("active");
+}
+</script>
+
+<script>
+const slides = document.querySelectorAll(".testimonial-slide");
+let currentSlide = 0;
+
+function showNextSlide() {
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add("active");
+}
+
+setInterval(showNextSlide, 5000); // changes every 5 seconds, but is that enough? Will answer that on deployment
+</script>
+
+<script>
+const text = "Elevate your look. Embrace your story";
+const typingElement = document.getElementById("typing-text");
+let index = 0;
+let forward = true; // typing forward or deleting
+
+function typeLoop() {
+  typingElement.style.opacity = 1; // fade in
+  if (forward) {
+    if (index < text.length) {
+      typingElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeLoop, 100); // typing speed
+    } else {
+      forward = false;
+      setTimeout(typeLoop, 2000); // pause before deleting
+    }
+  } else {
+    if (index > 0) {
+      typingElement.textContent = text.substring(0, index - 1);
+      index--;
+      setTimeout(typeLoop, 50); // deleting speed
+    } else {
+      forward = true;
+      setTimeout(typeLoop, 500); // pause before typing again
+    }
+  }
+}
+
+// Start on page load
+window.addEventListener("load", typeLoop);
+</script>
+
+</body>
+</html>

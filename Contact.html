@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact & Book Appointment | Nizie Piercing</title>
+
+<meta name="description" content="Book your luxury piercing appointment at Nizie Piercing. Visit us at 163 Drew Street, Korsten or Nelson Mandela University Campus. Professional, hygienic and premium service.">
+<meta name="keywords" content="Nizie Piercing, piercing studio, Korsten piercing, NMU campus piercing, book piercing appointment, luxury body piercing">
+<meta name="author" content="Nizie Piercing">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+.location-tabs {
+  text-align:center;
+  margin-bottom:2rem;
+}
+
+.location-tabs button {
+  margin:0.5rem;
+}
+
+.map-container {
+  display:none;
+  opacity:0;
+  transform:translateY(20px);
+  transition:all 0.5s ease;
+}
+
+.map-container.active {
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+}
+
+.booking-form {
+  max-width:600px;
+  margin:3rem auto;
+  background:var(--dark);
+  padding:2.5rem;
+  border-radius:12px;
+  border:1px solid #222;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width:100%;
+  padding:12px;
+  margin-bottom:1rem;
+  border-radius:6px;
+  border:none;
+}
+
+.total-display {
+  font-size:18px;
+  margin-bottom:1rem;
+  color:var(--gold);
+  font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <a href="index.html">
+      <img src="Assets/logo.png" alt="Nizie Logo">
+    </a>
+  </div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Services.html">Services</a></li>
+    <li><a href="Gallery.html">Gallery</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero" style="
+  height: 60vh;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+  url('Assets/hero.png') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:0 20px;
+">
+
+  <div>
+    <h2>Book Your Appointment</h2>
+    <p>Luxury • Precision • Professional Care</p>
+  </div>
+
+</div>
+<section class="location-section">
+
+<h2>Our Location</h2>
+
+<div style="text-align:center; margin-bottom:2rem; max-width:800px; margin-left:auto; margin-right:auto;">
+
+  <h3 style="letter-spacing:1px;">
+    🎓 Nelson Mandela University South Campus
+  </h3>
+
+  <p style="margin-top:10px;">
+    <strong>Solomon Mahlangu Residence</strong>
+  </p>
+
+  <p style="opacity:0.8; margin-top:10px;">
+    South Campus, Gqeberha, Eastern Cape, South Africa
+  </p>
+
+  <p style="margin-top:15px; opacity:0.7; font-size:14px;">
+    We are conveniently located at Nelson Mandela University South Campus,
+    making professional body piercing services easily accessible.
+  </p>
+
+</div>
+
+<iframe
+  src="https://www.google.com/maps?q=Solomon%20Mahlangu%20Residence%20Nelson%20Mandela%20University%20South%20Campus&output=embed"
+  width="100%"
+  height="400"
+  style="border:0; border-radius:12px;"
+  loading="lazy">
+</iframe>
+
+<div style="text-align:center; margin-top:1.8rem;">
+
+  <a href="https://www.google.com/maps/dir/?api=1&destination=Solomon+Mahlangu+Residence+Nelson+Mandela+University+South+Campus"
+     target="_blank"
+     class="btn"
+     style="display:inline-block; margin-top:10px;">
+     Get Directions
+  </a>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Book Your Service</h2>
+
+<form class="booking-form" onsubmit="sendToWhatsApp(); return false;">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<select id="bookingType" onchange="toggleHouseCall()" required>
+  <option value="">Select Booking Type</option>
+  <option value="studio">Studio Appointment</option>
+  <option value="housecall">House Call (Travel Fee Applies)</option>
+</select>
+
+<div id="houseCallControls" style="display:none; margin-bottom:1rem;">
+  <button type="button" class="btn" onclick="detectLocation()">
+    📍 Detect My Location
+  </button>
+  <p id="distanceInfo" style="margin-top:10px;"></p>
+</div>
+
+<select id="serviceSelect">
+  <option value="">Select Service</option>
+
+  <optgroup label="Ear Piercings">
+    <option value="Conch|80">Conch – R80</option>
+    <option value="Flat|80">Flat – R80</option>
+    <option value="Helix|100">Helix – R100</option>
+    <option value="Tragus|80">Tragus – R80</option>
+    <option value="Earlobes|100">Earlobes – R100</option>
+    <option value="Industrial|150">Industrial – R150</option>
+    <option value="Snug|80">Snug – R80</option>
+  </optgroup>
+
+  <optgroup label="Facial & Body">
+    <option value="Nose|100">Nose – R100</option>
+    <option value="Septum|100">Septum – R100</option>
+    <option value="Bridge|100">Bridge – R100</option>
+    <option value="Eyebrows|100">Eyebrows – R100</option>
+    <option value="Ashley|150">Ashley – R150</option>
+    <option value="Belly|150">Belly – R150</option>
+    <option value="Belly|150">Medusa – R150</option>
+    <option value="Belly|150">Labret – R150</option>
+    <option value="Belly|150">Monroe – R150</option>
+  </optgroup>
+
+</select>
+
+<button type="button" class="btn" onclick="addService()">Add Service</button>
+
+<div id="selectedServices"></div>
+
+<div class="total-display">
+Total: R<span id="totalAmount">0</span>
+</div>
+
+<input type="date" id="date" required>
+
+<textarea id="message" placeholder="Additional Message (Optional)"></textarea>
+
+<button type="submit" class="btn">
+Send Booking via WhatsApp
+</button>
+
+</form>
+
+</section>
+
+<footer class="premium-footer">
+
+<p>© 2026 Nizie Piercing</p>
+
+<p class="developer-credit">
+    Website Designed & Developed by
+    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+        Lwandiso Nunu
+    </a>
+    |
+    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+        View Portfolio
+    </a>
+</p>
+
+</footer>
+
+<script>
+
+const dateInput = document.getElementById("date");
+const today = new Date().toISOString().split("T")[0];
+dateInput.setAttribute("min", today);
+
+let services = [];
+
+const STUDIO_LAT = -33.9608;
+const STUDIO_LNG = 25.6000;
+
+let customerLat = null;
+let customerLng = null;
+let houseCallFee = 0;
+
+function toggleHouseCall(){
+  const type = document.getElementById("bookingType").value;
+  const controls = document.getElementById("houseCallControls");
+
+  if(type === "housecall"){
+    controls.style.display = "block";
+  } else {
+    controls.style.display = "none";
+    houseCallFee = 0;
+    calculateTotal();
+  }
+}
+
+function detectLocation(){
+
+  if(navigator.geolocation){
+
+    navigator.geolocation.getCurrentPosition(function(position){
+
+      customerLat = position.coords.latitude;
+      customerLng = position.coords.longitude;
+
+      calculateTotal();
+
+    }, function(){
+      alert("Location permission denied.");
+    });
+
+  } else {
+    alert("Geolocation not supported.");
+  }
+}
+
+function getDistance(lat1, lon1, lat2, lon2){
+
+  const R = 6371;
+  const dLat = (lat2-lat1) * Math.PI/180;
+  const dLon = (lon2-lon1) * Math.PI/180;
+
+  const a =
+    Math.sin(dLat/2)*Math.sin(dLat/2) +
+    Math.cos(lat1*Math.PI/180) *
+    Math.cos(lat2*Math.PI/180) *
+    Math.sin(dLon/2)*Math.sin(dLon/2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+  return R * c;
+}
+
+function calculateTotal(){
+
+  let total = 0;
+
+  services.forEach(service=>{
+    total += service.price;
+  });
+
+  const bookingType = document.getElementById("bookingType").value;
+
+  if(bookingType === "housecall" && customerLat !== null){
+
+    const distance = getDistance(
+      STUDIO_LAT,
+      STUDIO_LNG,
+      customerLat,
+      customerLng
+    );
+
+    if(distance <= 5){
+      houseCallFee = 50;
+    }
+    else if(distance <= 10){
+      houseCallFee = 100;
+    }
+    else if(distance <= 20){
+      houseCallFee = 150;
+    }
+    else{
+      alert("House calls are only available within 20km.");
+      houseCallFee = 0;
+    }
+
+    total += houseCallFee;
+
+    document.getElementById("distanceInfo").innerText =
+      "Distance: " + distance.toFixed(2) + " km | Fee: R" + houseCallFee;
+  }
+
+  document.getElementById("totalAmount").innerText = total;
+  return total;
+}
+
+function addService(){
+
+  const select = document.getElementById("serviceSelect");
+  const value = select.value;
+
+  if(!value){
+    alert("Please select a service.");
+    return;
+  }
+
+  const [name, price] = value.split("|");
+
+  services.push({name, price: parseInt(price)});
+
+  updateServiceList();
+  calculateTotal();
+
+  select.selectedIndex = 0;
+}
+
+function removeService(index){
+  services.splice(index, 1);
+  updateServiceList();
+  calculateTotal();
+}
+
+function updateServiceList(){
+
+  const container = document.getElementById("selectedServices");
+  container.innerHTML = "";
+
+  services.forEach((service, index)=>{
+
+    const div = document.createElement("div");
+    div.style.marginBottom = "5px";
+
+    div.innerHTML = `
+      ${service.name} - R${service.price}
+      <button type="button" onclick="removeService(${index})">Remove</button>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+function sendToWhatsApp(){
+
+  if(services.length === 0){
+    alert("Please add at least one service.");
+    return;
+  }
+
+  const name = document.getElementById("name").value;
+  const bookingType = document.getElementById("bookingType").value;
+  const date = document.getElementById("date").value;
+  const message = document.getElementById("message").value;
+
+  let serviceList = "";
+  let total = 0;
+
+  services.forEach(service=>{
+    serviceList += service.name + " - R" + service.price + "\n";
+    total += service.price;
+  });
+
+  if(bookingType === "housecall"){
+    total += houseCallFee;
+  }
+
+  const text =
+`Hello Nizie Piercing,
+
+Name: ${name}
+Booking Type: ${bookingType}
+
+Services:
+${serviceList}
+
+House Call Fee: ${bookingType === "housecall" ? "R"+houseCallFee : "N/A"}
+
+Total Amount: R${total}
+
+Date: ${date}
+Message: ${message}`;
+
+  window.open(
+    `https://wa.me/27680266883?text=${encodeURIComponent(text)}`,
+    "_blank"
+  );
+}
+
+function toggleMenu() {
+  const nav = document.getElementById("nav-links");
+  nav.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

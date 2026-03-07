@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Nizie Piercing</title>
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ===== MASONRY GALLERY ===== */
+
+.grid{
+column-count:3;
+column-gap:1.5rem;
+margin-top:1.5rem;
+}
+
+@media(max-width:900px){
+.grid{
+column-count:2;
+}
+}
+
+@media(max-width:500px){
+.grid{
+column-count:1;
+}
+}
+
+/* IMAGE STYLE */
+
+.grid img{
+width:100%;
+margin-bottom:1.5rem;
+border-radius:12px;
+border:1px solid #222;
+cursor:pointer;
+
+opacity:0;
+transform:scale(0.95);
+
+transition:opacity 0.6s ease,
+transform 0.6s ease,
+box-shadow 0.35s ease;
+}
+
+.grid img.loaded{
+opacity:1;
+transform:scale(1);
+}
+
+.grid img:hover{
+transform:scale(1.05);
+box-shadow:0 12px 30px rgba(0,0,0,0.7);
+}
+
+
+/* ===== LIGHTBOX ===== */
+
+.lightbox{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:80%;
+border-radius:12px;
+box-shadow:0 20px 40px rgba(0,0,0,0.8);
+}
+
+.lightbox-caption{
+margin-top:15px;
+color:white;
+font-size:18px;
+letter-spacing:1px;
+opacity:0.9;
+}
+
+/* CLOSE BUTTON */
+
+.lightbox-close{
+position:absolute;
+top:30px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+/* NAVIGATION ARROWS */
+
+.lightbox-nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:45px;
+color:white;
+cursor:pointer;
+padding:10px 20px;
+user-select:none;
+}
+
+.lightbox-prev{
+left:30px;
+}
+
+.lightbox-next{
+right:30px;
+}
+
+.lightbox-nav:hover{
+opacity:0.7;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div class="logo">
+<a href="index.html">
+<img src="Assets/logo.png" alt="Nizie Piercing Logo">
+</a>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<ul id="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="About.html">About</a></li>
+<li><a href="Services.html">Services</a></li>
+<li><a href="Gallery.html">Gallery</a></li>
+<li><a href="Contact.html">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero" style="background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+url('Assets/hero.png') center/cover no-repeat;">
+<h2>Our Gallery</h2>
+<p>Precision Work • Luxury Results</p>
+</div>
+
+<section>
+
+<h2>Piercing Gallery</h2>
+
+<!-- FILTER BUTTONS -->
+
+<div class="gallery-filters">
+
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="ear">Ear Piercings</button>
+<button class="filter-btn" data-filter="nose">Nose Piercings</button>
+<button class="filter-btn" data-filter="belly">Belly Piercings</button>
+<button class="filter-btn" data-filter="facial">Facial Piercings</button>
+
+</div>
+
+
+<div class="gallery-grid">
+
+<img src="Assets/conch.jpg" class="gallery-item ear" alt="Professional Conch Ear Piercing" data-caption="Conch Piercing" loading="lazy">
+
+<img src="Assets/helix.jpg" class="gallery-item ear" alt="Helix Ear Piercing" data-caption="Helix Piercing" loading="lazy">
+
+<img src="Assets/ear2.jpeg" class="gallery-item ear" alt="Flat Ear Piercing" data-caption="Flat Piercing" loading="lazy">
+<img src="Assets/ear3.jpeg" class="gallery-item ear" alt="Tragus Ear Piercing" data-caption="Tragus Piercing" loading="lazy">
+<img src="Assets/ear1.jpg" class="gallery-item ear" alt="Flat Ear Piercing" data-caption="Flat Piercing" loading="lazy">
+
+
+<img src="Assets/nose2.jpeg" class="gallery-item nose" alt="Nose Piercing Studio Work" data-caption="Nose Piercing" loading="lazy">
+<img src="Assets/septum.jpg" class="gallery-item nose" alt="Septum Piercing Professional Work" data-caption="Septum Piercing" loading="lazy">
+<img src="Assets/nose1.jpeg" class="gallery-item nose" alt="Nose Piercing Studio Work" data-caption="Nose Piercing" loading="lazy">
+
+<img src="Assets/belly1.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<img src="Assets/belly2.jpeg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<img src="Assets/belly3.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<img src="Assets/belly4.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<img src="Assets/belly5.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<img src="Assets/belly6.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<img src="Assets/belly7.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+
+</div>
+
+</section>
+
+<div id="lightbox" class="lightbox">
+
+<span class="lightbox-close" onclick="closeLightbox()">×</span>
+
+<span class="lightbox-nav lightbox-prev" onclick="prevImage()">❮</span> <span class="lightbox-nav lightbox-next" onclick="nextImage()">❯</span>
+
+<img id="lightbox-img">
+<div id="lightbox-caption" class="lightbox-caption"></div>
+
+</div>
+
+<footer class="premium-footer">
+
+<p>© 2026 Nizie Piercing</p>
+
+<p class="developer-credit">
+Website Designed & Developed by
+<a href="https://nunu-dev.netlify.app/" target="_blank">Lwandiso Nunu</a>
+|
+<a href="https://nunu-dev.netlify.app/" target="_blank">View Portfolio</a>
+</p>
+
+</footer>
+
+<a href="https://wa.me/27680266883" class="whatsapp-float" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("nav-links").classList.toggle("active");
+}
+
+
+window.addEventListener("scroll", function(){
+const nav = document.querySelector("nav");
+nav.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+
+/* IMAGE FADE-IN */
+
+/* IMAGE FADE-IN */
+
+const lazyImages=document.querySelectorAll(".gallery-grid img");
+
+lazyImages.forEach(img=>{
+img.onload=()=>{
+img.classList.add("loaded");
+}
+});
+
+
+/* LIGHTBOX */
+
+const images=document.querySelectorAll(".gallery-grid img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightbox-img");
+const caption=document.getElementById("lightbox-caption");
+
+let currentIndex=0;
+
+images.forEach((img,index)=>{
+
+img.addEventListener("click",()=>{
+
+lightbox.style.display="flex";
+lightboxImg.src=img.src;
+caption.textContent=img.dataset.caption;
+currentIndex=index;
+
+});
+
+});
+
+function closeLightbox(){
+lightbox.style.display="none";
+}
+
+
+function nextImage(){
+
+currentIndex++;
+
+if(currentIndex>=images.length){
+currentIndex=0;
+}
+
+updateLightbox();
+
+}
+
+
+function prevImage(){
+
+currentIndex--;
+
+if(currentIndex<0){
+currentIndex=images.length-1;
+}
+
+updateLightbox();
+
+}
+
+
+function updateLightbox(){
+
+lightboxImg.src=images[currentIndex].src;
+caption.textContent=images[currentIndex].dataset.caption;
+
+}
+
+
+/* KEYBOARD NAVIGATION */
+
+document.addEventListener("keydown",function(e){
+
+if(lightbox.style.display==="flex"){
+
+if(e.key==="ArrowRight") nextImage();
+if(e.key==="ArrowLeft") prevImage();
+if(e.key==="Escape") closeLightbox();
+
+}
+
+});
+
+/* GALLERY FILTER */
+
+const filterBtns=document.querySelectorAll(".filter-btn");
+const galleryItems=document.querySelectorAll(".gallery-item");
+
+filterBtns.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+document.querySelector(".filter-btn.active").classList.remove("active");
+btn.classList.add("active");
+
+const filter=btn.dataset.filter;
+
+galleryItems.forEach(item=>{
+
+if(filter==="all"){
+item.style.display="block";
+}
+else{
+if(item.classList.contains(filter)){
+item.style.display="block";
+}
+else{
+item.style.display="none";
+}
+}
+
+});
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
