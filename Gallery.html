@@ -5,13 +5,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery | Nizie Piercing</title>
+<meta name="description" content="Nizie Piercing is a luxury piercing studio offering professional body piercing, jewelry, and safe hygienic procedures.">
+<meta name="keywords" content="piercing studio, body piercing, ear piercing, luxury piercing studio, professional piercer">
+<meta name="author" content="Lwandiso Nunu">
+
+<meta name="developer" content="Developed by Lwandiso Nunu">
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<meta property="og:title" content="Nizie Piercing | Ultra Luxury Studio">
+<meta property="og:description" content="Luxury body piercing studio offering safe professional piercings.">
+<meta property="og:image" content="logo.png">
+<meta property="og:type" content="website">
+
 <link rel="stylesheet" href="style.css">
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* ===== MASONRY GALLERY ===== */
 
 .grid{
 column-count:3;
@@ -31,7 +44,6 @@ column-count:1;
 }
 }
 
-/* IMAGE STYLE */
 
 .grid img{
 width:100%;
@@ -57,9 +69,6 @@ transform:scale(1);
 transform:scale(1.05);
 box-shadow:0 12px 30px rgba(0,0,0,0.7);
 }
-
-
-/* ===== LIGHTBOX ===== */
 
 .lightbox{
 display:none;
@@ -91,8 +100,6 @@ letter-spacing:1px;
 opacity:0.9;
 }
 
-/* CLOSE BUTTON */
-
 .lightbox-close{
 position:absolute;
 top:30px;
@@ -101,8 +108,6 @@ font-size:40px;
 color:white;
 cursor:pointer;
 }
-
-/* NAVIGATION ARROWS */
 
 .lightbox-nav{
 position:absolute;
@@ -161,8 +166,6 @@ url('assets/hero.png') center/cover no-repeat;">
 
 <h2>Piercing Gallery</h2>
 
-<!-- FILTER BUTTONS -->
-
 <div class="gallery-filters">
 
 <button class="filter-btn active" data-filter="all">All</button>
@@ -177,25 +180,22 @@ url('assets/hero.png') center/cover no-repeat;">
 <div class="gallery-grid">
 
 <img src="assets/conch.jpg" class="gallery-item ear" alt="Professional Conch Ear Piercing" data-caption="Conch Piercing" loading="lazy">
-
+<img src="assets/belly7.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
 <img src="assets/helix.jpg" class="gallery-item ear" alt="Helix Ear Piercing" data-caption="Helix Piercing" loading="lazy">
 
 <img src="assets/ear2.jpeg" class="gallery-item ear" alt="Flat Ear Piercing" data-caption="Flat Piercing" loading="lazy">
-<img src="assets/ear3.jpeg" class="gallery-item ear" alt="Tragus Ear Piercing" data-caption="Tragus Piercing" loading="lazy">
+<img src="assets/belly4.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<img src="assets/belly5.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
 <img src="assets/ear1.jpg" class="gallery-item ear" alt="Flat Ear Piercing" data-caption="Flat Piercing" loading="lazy">
-
-
 <img src="assets/nose2.jpeg" class="gallery-item nose" alt="Nose Piercing Studio Work" data-caption="Nose Piercing" loading="lazy">
 <img src="assets/septum.jpg" class="gallery-item nose" alt="Septum Piercing Professional Work" data-caption="Septum Piercing" loading="lazy">
 <img src="assets/nose1.jpeg" class="gallery-item nose" alt="Nose Piercing Studio Work" data-caption="Nose Piercing" loading="lazy">
-
 <img src="assets/belly1.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
 <img src="assets/belly2.jpeg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<img src="assets/ear3.jpeg" class="gallery-item ear" alt="Tragus Ear Piercing" data-caption="Tragus Piercing" loading="lazy">
 <img src="assets/belly3.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/belly4.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/belly5.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
 <img src="assets/belly6.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/belly7.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+
 
 </div>
 
@@ -235,16 +235,10 @@ function toggleMenu(){
 document.getElementById("nav-links").classList.toggle("active");
 }
 
-
 window.addEventListener("scroll", function(){
 const nav = document.querySelector("nav");
 nav.classList.toggle("scrolled", window.scrollY > 50);
 });
-
-
-/* IMAGE FADE-IN */
-
-/* IMAGE FADE-IN */
 
 const lazyImages=document.querySelectorAll(".gallery-grid img");
 
@@ -253,9 +247,6 @@ img.onload=()=>{
 img.classList.add("loaded");
 }
 });
-
-
-/* LIGHTBOX */
 
 const images=document.querySelectorAll(".gallery-grid img");
 const lightbox=document.getElementById("lightbox");
@@ -294,7 +285,6 @@ updateLightbox();
 
 }
 
-
 function prevImage(){
 
 currentIndex--;
@@ -307,16 +297,12 @@ updateLightbox();
 
 }
 
-
 function updateLightbox(){
 
 lightboxImg.src=images[currentIndex].src;
 caption.textContent=images[currentIndex].dataset.caption;
 
 }
-
-
-/* KEYBOARD NAVIGATION */
 
 document.addEventListener("keydown",function(e){
 
@@ -330,15 +316,12 @@ if(e.key==="Escape") closeLightbox();
 
 });
 
-/* GALLERY FILTER */
-
 const filterBtns=document.querySelectorAll(".filter-btn");
 const galleryItems=document.querySelectorAll(".gallery-item");
 
 filterBtns.forEach(btn=>{
 
 btn.addEventListener("click",()=>{
-
 document.querySelector(".filter-btn.active").classList.remove("active");
 btn.classList.add("active");
 

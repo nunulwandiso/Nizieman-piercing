@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nizie Piercing | Ultra Luxury Studio</title>
+<title>Nizie Piercing | Ultra Luxury Piercing Studio</title>
+
+<meta name="description" content="Nizie Piercing is a luxury piercing studio offering professional body piercing, jewelry, and safe hygienic procedures.">
+<meta name="keywords" content="piercing studio, body piercing, ear piercing, luxury piercing studio, professional piercer">
+<meta name="author" content="Lwandiso Nunu">
+
+<meta name="developer" content="Developed by Lwandiso Nunu">
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<meta property="og:title" content="Nizie Piercing | Ultra Luxury Studio">
+<meta property="og:description" content="Luxury body piercing studio offering safe professional piercings.">
+<meta property="og:image" content="logo.png">
+<meta property="og:type" content="website">
 
 <link rel="stylesheet" href="style.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-/* ===== ULTRA LUXURY HERO ===== */
 
 .hero {
   height: 100vh;
@@ -58,8 +71,6 @@
   box-shadow: 0 0 25px rgba(212,175,55,0.6);
 }
 
-/* ===== SIGNATURE SECTION ===== */
-
 .signature {
   padding: 100px 20px;
   text-align: center;
@@ -78,7 +89,6 @@
   line-height: 1.8;
 }
 
-/* ===== PREMIUM CARDS ===== */
 
 .grid {
   display: grid;
@@ -108,8 +118,6 @@
   opacity: 0.7;
   font-size: 14px;
 }
-
-/* PREMIUM TESTIMONIAL SECTION */
 
 .testimonial {
   padding: 120px 20px;
@@ -176,15 +184,13 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <h1 id="typing-text"></h1>
+    <div><i><h1 id="typing-text"></h1></i></div>
     <a href="Contact.html" class="btn">Reserve Your Appointment</a>
   </div>
 </section>
 
-<!-- SIGNATURE MESSAGE -->
 <section class="signature">
   <h2>Crafted With Precision</h2>
   <p>
@@ -194,7 +200,6 @@
   </p>
 </section>
 
-<!-- WHY CHOOSE US -->
 <section>
   <div class="grid">
     <div class="card">
@@ -212,7 +217,6 @@
   </div>
 </section>
 
-<!-- PREMIUM ROTATING TESTIMONIALS -->
 <section class="testimonial">
 
   <div class="testimonial-container">
@@ -306,39 +310,38 @@ function showNextSlide() {
   slides[currentSlide].classList.add("active");
 }
 
-setInterval(showNextSlide, 5000); // changes every 5 seconds, but is that enough? Will answer that on deployment
+setInterval(showNextSlide, 5000); // changes every 5 seconds, but is that enough? Will answer that on deployment or as time goes while in production
 </script>
 
 <script>
 const text = "Elevate your look. Embrace your story";
 const typingElement = document.getElementById("typing-text");
 let index = 0;
-let forward = true; // typing forward or deleting
+let forward = true;
 
 function typeLoop() {
-  typingElement.style.opacity = 1; // fade in
+  typingElement.style.opacity = 1; 
   if (forward) {
     if (index < text.length) {
       typingElement.textContent += text.charAt(index);
       index++;
-      setTimeout(typeLoop, 100); // typing speed
+      setTimeout(typeLoop, 100); // typing speed, is it the right speed even in production?
     } else {
       forward = false;
-      setTimeout(typeLoop, 2000); // pause before deleting
+      setTimeout(typeLoop, 2000); // pause before deleting, is the pausing well calebrated? Will answer that question with time
     }
   } else {
     if (index > 0) {
       typingElement.textContent = text.substring(0, index - 1);
       index--;
-      setTimeout(typeLoop, 50); // deleting speed
+      setTimeout(typeLoop, 50); // deleting speed, is the pausing well calebrated? Will answer that question with time
     } else {
       forward = true;
-      setTimeout(typeLoop, 500); // pause before typing again
+      setTimeout(typeLoop, 500); // pause before typing again, is the pausing well calebrated? Will answer that question with time
     }
   }
 }
 
-// Start on page load
 window.addEventListener("load", typeLoop);
 </script>
 
