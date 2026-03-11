@@ -116,6 +116,12 @@ nav ul li a:hover {
   font-size: 1.2rem;
 }
 
+.hero .btn{
+  display: inline-block;
+  max-width: 90vw;
+  text-align: center;
+}
+
 .btn {
   margin-top: 2rem;
   padding: 1rem 2.5rem;
@@ -125,6 +131,7 @@ nav ul li a:hover {
   font-weight: bold;
   border-radius: 30px;
   transition: 0.3s;
+   white-space: nowrap;
 }
 
 .btn:hover {
