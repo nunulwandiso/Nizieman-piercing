@@ -318,22 +318,19 @@ box-shadow:0 12px 30px rgba(0,0,0,0.7);
 
 #typing-text {
   display: inline-block;
-  white-space: normal;
+  white-space: pre-line;
   max-width: 90vw;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   color: var(--gold);
-  text-shadow: 0 0 10px rgba(212,175,55,0.7);
+  text-shadow: 0 0 12px rgba(212,175,55,0.6);
   border-right: 2px solid var(--gold);
-  animation: blink-cursor 0.8s steps(44) infinite normal;
+  animation: blink-cursor 1s infinite;
+  font-size: clamp(1.5rem, 5vw, 3.2rem);
+  line-height: 1.35;
   opacity: 0;
-  transition: opacity 0.5s ease-in;
-  word-wrap: break-word; 
-  font-size: clamp(1.5rem, 6vw, 3rem); 
-  line-height: 1.2;
-  text-align: center;
+  transition: opacity 0.6s ease;
 }
-
 .hero-content {
   max-width: 95%;
   padding: 0 1rem;

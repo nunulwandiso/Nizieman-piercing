@@ -314,35 +314,50 @@ setInterval(showNextSlide, 5000); // changes every 5 seconds, but is that enough
 </script>
 
 <script>
-const text = "Elevate your look. Embrace your story";
+const text = "Elevate your look.\nEmbrace your story";
 const typingElement = document.getElementById("typing-text");
-let index = 0;
-let forward = true;
 
-function typeLoop() {
-  typingElement.style.opacity = 1; 
-  if (forward) {
-    if (index < text.length) {
-      typingElement.textContent += text.charAt(index);
-      index++;
-      setTimeout(typeLoop, 100); // typing speed, is it the right speed even in production?
-    } else {
-      forward = false;
-      setTimeout(typeLoop, 2000); // pause before deleting, is the pausing well calebrated? Will answer that question with time
-    }
+let index = 0;
+
+function typeText() {
+
+  typingElement.style.opacity = 1;
+
+  if(index < text.length){
+
+    typingElement.textContent += text.charAt(index);
+
+    index++;
+
+    let speed = text.charAt(index) === "\n" ? 400 : 60;
+
+    setTimeout(typeText, speed);
+
   } else {
-    if (index > 0) {
-      typingElement.textContent = text.substring(0, index - 1);
-      index--;
-      setTimeout(typeLoop, 50); // deleting speed, is the pausing well calebrated? Will answer that question with time
-    } else {
-      forward = true;
-      setTimeout(typeLoop, 500); // pause before typing again, is the pausing well calebrated? Will answer that question with time
-    }
+
+    setTimeout(resetText, 4000);
+
   }
+
 }
 
-window.addEventListener("load", typeLoop);
+function resetText(){
+
+  typingElement.style.opacity = 0;
+
+  setTimeout(() => {
+
+    typingElement.textContent = "";
+
+    index = 0;
+
+    typeText();
+
+  }, 800);
+
+}
+
+window.addEventListener("load", typeText);
 </script>
 
 </body>
