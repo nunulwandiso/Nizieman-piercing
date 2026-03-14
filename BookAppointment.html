@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookAppointment & Book Appointment | Nizie Piercing</title>
+<meta name="description" content="Nizie Piercing is a luxury piercing studio offering professional body piercing, jewelry, and safe hygienic procedures.">
+<meta name="keywords" content="piercing studio, body piercing, ear piercing, luxury piercing studio, professional piercer">
+<meta name="author" content="Lwandiso Nunu">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{opacity:0; transition:opacity .6s ease; background:#000; color:white; font-family:Arial, Helvetica, sans-serif;}
+body.loaded{opacity:1;}
+.hero{height:60vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 20px; background:linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),url('assets/hero.png') center/cover no-repeat;}
+.hero h2{font-size:36px; margin-bottom:10px;}
+.hero p{font-size:18px; opacity:0.85;}
+section h2{font-size:28px; text-align:center; margin-top:3rem; margin-bottom:2rem;}
+.booking-form{max-width:700px;margin:3rem auto;background:rgba(255,255,255,0.05);backdrop-filter:blur(15px);padding:2.5rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);}
+.booking-form input, .booking-form select, .booking-form textarea{width:100%; padding:12px; margin-bottom:1rem; border-radius:6px; border:none; background:#222; color:white;}
+.booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus{outline:none; box-shadow:0 0 10px gold;}
+.booking-form button{background:gold; color:black; padding:10px 20px; border:none; border-radius:12px; cursor:pointer; font-weight:bold; transition:.3s;}
+.booking-form button:hover{background:#ffc107;}
+#cart-preview{background:rgba(255,255,255,0.05);backdrop-filter:blur(15px); border-radius:12px; padding:15px; margin-bottom:1rem; border:1px solid rgba(255,255,255,0.1);}
+.cart-item{display:flex; align-items:center; margin-bottom:8px; position:relative; transition:all .3s ease;}
+.cart-item:hover{transform:scale(1.02); box-shadow:0 10px 25px rgba(255,215,0,.4);}
+.cart-item img{width:50px; height:50px; object-fit:cover; border-radius:6px; margin-right:10px;}
+.cart-item-details{flex:1;}
+.remove-cart-btn{background:red; color:white; border:none; padding:2px 6px; border-radius:6px; font-size:12px; cursor:pointer;}
+#cart-total-display{font-weight:bold; text-align:right; margin-top:8px; font-size:18px; color:gold;}
+#cart-buttons{display:flex; justify-content:space-between; margin-top:10px;}
+#cart-buttons button{flex:1; margin:0 4px;}
+.btn{background:gold;color:black;padding:10px 20px;border:none;border-radius:12px;cursor:pointer;font-weight:bold; transition:.3s;}
+.btn:hover{background:#ffc107;}
+.location-section h3{margin-bottom:5px;}
+.location-section p{opacity:0.8; margin:2px 0;}
+footer.premium-footer{text-align:center; padding:25px 20px; background:#111; margin-top:3rem; font-size:14px; color:#aaa;}
+footer.premium-footer a{color:gold; text-decoration:none;}
+footer.premium-footer a:hover{text-decoration:underline;}
+#floating-cart{position:fixed; top:90px; right:25px; background:gold; color:black; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 8px 25px rgba(0,0,0,.4); z-index:1200; cursor:pointer;}
+#floating-cart-count{position:absolute; top:-6px; right:-6px; background:red; color:white; font-size:12px; padding:3px 7px; border-radius:50%; font-weight:bold;}
+.fly-item{position:fixed; width:40px; height:40px; border-radius:50%; pointer-events:none; z-index:2000; transition:all .8s cubic-bezier(.65,-0.25,.25,1.35);}
+</style>
+</head>
+<body>
+
+<div id="floating-cart" onclick="scrollToCart()">
+  <i class="fa-solid fa-shopping-cart"></i>
+  <div id="floating-cart-count">0</div>
+</div>
+
+<nav>
+  <div class="logo"><a href="index.html"><img src="assets/logo.png" alt="Nizie Logo"></a></div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Services.html">Services</a></li>
+    <li><a href="Gallery.html">Gallery</a></li>
+    <li><a href="BookAppointment.html">Book Appointment</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div>
+    <h2>Book Your Appointment</h2>
+    <p>Luxury • Precision • Professional Care</p>
+  </div>
+</div>
+
+<section class="location-section">
+<h2>Our Location</h2>
+<div style="text-align:center; margin-bottom:2rem; max-width:800px; margin-left:auto; margin-right:auto;">
+  <h3>🎓 Nelson Mandela University South Campus</h3>
+  <p><strong>Solomon Mahlangu Residence</strong></p>
+  <p style="opacity:0.8;">South Campus, Gqeberha, Eastern Cape, South Africa</p>
+  <p style="margin-top:15px; opacity:0.7; font-size:14px;">
+    We are conveniently located at Nelson Mandela University South Campus, making professional body piercing services easily accessible.
+  </p>
+</div>
+<iframe src="https://www.google.com/maps?q=Solomon%20Mahlangu%20Residence%20Nelson%20Mandela%20University%20South%20Campus&output=embed" width="100%" height="400" style="border:0; border-radius:12px;" loading="lazy"></iframe>
+<div style="text-align:center; margin-top:1.8rem;">
+  <a href="https://www.google.com/maps/dir/?api=1&destination=Solomon+Mahlangu+Residence+Nelson+Mandela+University+South+Campus" target="_blank" class="btn">Get Directions</a>
+</div>
+</section>
+
+<section>
+<h2>Booking & Cart</h2>
+
+<form class="booking-form" onsubmit="sendToWhatsApp(); return false;">
+<div id="cart-preview">
+<h3>Selected Services</h3>
+<div id="cart-items-container"></div>
+<div id="cart-total-display">Total: R0</div>
+<div id="cart-buttons">
+<button type="button" class="btn" onclick="removeAllCart()">Remove All</button>
+</div>
+</div>
+
+<input type="text" id="name" placeholder="Full Name" required>
+<select id="bookingType" onchange="toggleHouseCall()" required>
+  <option value="">Select Booking Type</option>
+  <option value="studio">Studio Appointment</option>
+  <option value="housecall">House Call</option>
+</select>
+
+<div id="houseCallControls" style="display:none; margin-bottom:1rem;">
+  <input type="text" id="customerLocation" placeholder="Enter Your Location" style="width:100%; padding:12px; border-radius:6px; border:none; background:#222; color:white;">
+</div>
+
+<input type="date" id="date" required>
+<textarea id="message" placeholder="Additional Message (Optional)"></textarea>
+<button type="submit" class="btn">Send Booking via WhatsApp</button>
+</form>
+</section>
+
+<footer class="premium-footer">
+<p>© 2026 Nizie Piercing</p>
+<p class="developer-credit">
+Website Designed & Developed by <a href="https://nunu-dev.netlify.app/" target="_blank">Lwandiso Nunu</a> | <a href="https://nunu-dev.netlify.app/" target="_blank">View Portfolio</a>
+</p>
+</footer>
+
+<script>
+window.onload=()=>{
+  document.body.classList.add("loaded");
+
+  const lastItem=JSON.parse(localStorage.getItem("lastAddedItem")||"null");
+  if(lastItem){
+    const floating=document.getElementById("floating-cart");
+    const flyImg=document.createElement("img");
+    flyImg.src=lastItem.src;
+    flyImg.classList.add("fly-item");
+    document.body.appendChild(flyImg);
+    const start={top:window.innerHeight/2, left:window.innerWidth/2};
+    const end=floating.getBoundingClientRect();
+    flyImg.style.top=start.top+"px";
+    flyImg.style.left=start.left+"px";
+    setTimeout(()=>{
+      flyImg.style.top=end.top+"px";
+      flyImg.style.left=end.left+"px";
+      flyImg.style.opacity="0";
+      flyImg.style.transform="scale(.2)";
+    },10);
+    setTimeout(()=>flyImg.remove(),800);
+    localStorage.removeItem("lastAddedItem");
+  }
+};
+
+function toggleMenu(){document.getElementById("nav-links").classList.toggle("active");}
+
+let cart=JSON.parse(localStorage.getItem("cart")||"[]");
+let houseCallFee=0;
+
+function renderCart(){
+  const container=document.getElementById("cart-items-container");
+  const totalDisplay=document.getElementById("cart-total-display");
+  const floating=document.getElementById("floating-cart-count");
+  container.innerHTML="";
+  let total=0;
+  cart.forEach((item,index)=>{
+    total+=item.price;
+    const div=document.createElement("div");
+    div.className="cart-item";
+    div.innerHTML=`<img src="${item.src}"><div class="cart-item-details"><span>${item.title}</span><span>R${item.price}</span><button class="remove-cart-btn" onclick="removeCartItem(${index})">Remove</button></div>`;
+    container.appendChild(div);
+  });
+  totalDisplay.innerText=`Total: R${total+houseCallFee}`;
+  floating.innerText=cart.length;
+}
+
+function removeCartItem(index){cart.splice(index,1); localStorage.setItem("cart",JSON.stringify(cart)); renderCart();}
+function removeAllCart(){cart=[]; localStorage.setItem("cart",JSON.stringify(cart)); renderCart();}
+function scrollToCart(){window.scrollTo({top:document.getElementById("cart-preview").offsetTop-100, behavior:"smooth"});}
+
+function toggleHouseCall(){
+  const type=document.getElementById("bookingType").value;
+  const controls=document.getElementById("houseCallControls");
+  if(type==="housecall"){controls.style.display="block";}
+  else{controls.style.display="none"; houseCallFee=0; renderCart();}
+}
+
+function sendToWhatsApp(){
+  if(cart.length===0){
+    alert("Add at least one service to cart.");
+    return;
+  }
+
+  const name = document.getElementById("name").value.trim();
+  const bookingType = document.getElementById("bookingType").value;
+  const date = document.getElementById("date").value;
+  const message = document.getElementById("message").value.trim();
+  
+  let customerLocation = "N/A";
+  if(bookingType === "housecall") {
+    const locInput = document.getElementById("customerLocation");
+    if(!locInput || locInput.value.trim() === "") {
+      alert("Please enter your location for a house call.");
+      return;
+    }
+    customerLocation = locInput.value.trim();
+  }
+
+  let total = cart.reduce((sum,item)=>sum+item.price,0);
+  if(bookingType==="housecall") total += houseCallFee;
+
+  const serviceList = cart.map(item=>`${item.title} - R${item.price}`).join("\n");
+
+  const text=`Hello Nizie Piercing,
+Name: ${name}
+Booking Type: ${bookingType}
+Services:
+${serviceList}
+House Call Location: ${customerLocation}
+Total Amount: R${total}
+Date: ${date}
+Message: ${message}`;
+
+  window.open(`https://wa.me/27680266883?text=${encodeURIComponent(text)}`, "_blank");
+}
+
+renderCart();
+</script>
+</body>
+</html>

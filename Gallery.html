@@ -1,352 +1,354 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery | Nizie Piercing</title>
-<meta name="description" content="Nizie Piercing is a luxury piercing studio offering professional body piercing, jewelry, and safe hygienic procedures.">
-<meta name="keywords" content="piercing studio, body piercing, ear piercing, luxury piercing studio, professional piercer">
+<meta name="description" content="Luxury piercing gallery from Nizie Piercing Studio.">
 <meta name="author" content="Lwandiso Nunu">
-
-<meta name="developer" content="Developed by Lwandiso Nunu">
-
 <link rel="icon" type="image/png" href="logo.png">
-
-<meta property="og:title" content="Nizie Piercing | Ultra Luxury Studio">
-<meta property="og:description" content="Luxury body piercing studio offering safe professional piercings.">
-<meta property="og:image" content="logo.png">
-<meta property="og:type" content="website">
-
 <link rel="stylesheet" href="style.css">
-
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+/* ===== PAGE TRANSITIONS ===== */
+body{opacity:0; transition:opacity .6s ease; background:#000; color:white; font-family:Arial, Helvetica, sans-serif;}
+body.loaded{opacity:1;}
 
-
-.grid{
-column-count:3;
-column-gap:1.5rem;
-margin-top:1.5rem;
+/* ===== FLOATING CART ===== */
+#floating-cart{
+  position:fixed; top:90px; right:25px;
+  background:gold; color:black;
+  width:55px; height:55px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px;
+  box-shadow:0 8px 25px rgba(0,0,0,.4);
+  z-index:1200; cursor:pointer;
+}
+#floating-cart-count{
+  position:absolute; top:-6px; right:-6px;
+  background:red; color:white;
+  font-size:12px; padding:3px 7px;
+  border-radius:50%; font-weight:bold;
 }
 
-@media(max-width:900px){
-.grid{
-column-count:2;
-}
-}
-
-@media(max-width:500px){
-.grid{
-column-count:1;
-}
+/* ===== FLY TO CART ===== */
+.fly-item{
+  position:fixed; width:40px; height:40px;
+  border-radius:50%; pointer-events:none;
+  z-index:2000; transition:all .8s cubic-bezier(.65,-0.25,.25,1.35);
 }
 
+/* ===== GALLERY GRID ===== */
+.gallery-grid{column-count:3; column-gap:18px; margin-top:2rem;}
+@media(max-width:900px){.gallery-grid{column-count:2;}}
+@media(max-width:500px){.gallery-grid{column-count:1;}}
 
-.grid img{
-width:100%;
-margin-bottom:1.5rem;
-border-radius:12px;
-border:1px solid #222;
-cursor:pointer;
-
-opacity:0;
-transform:scale(0.95);
-
-transition:opacity 0.6s ease,
-transform 0.6s ease,
-box-shadow 0.35s ease;
+/* ===== GALLERY CARD ===== */
+.gallery-card{
+  break-inside:avoid; margin-bottom:18px;
+  background:#111; border-radius:16px;
+  overflow:hidden; border:1px solid #222;
+  cursor:pointer; transform-style:preserve-3d;
+  perspective:1000px; transition:transform .4s ease, box-shadow .4s ease;
+  position:relative;
 }
 
-.grid img.loaded{
-opacity:1;
-transform:scale(1);
+/* Hover glow and shine */
+.gallery-card:hover{
+  transform:rotateX(4deg) rotateY(-4deg) scale(1.04);
+  box-shadow:0 20px 50px rgba(255,215,0,.7), 0 20px 50px rgba(0,0,0,.7);
 }
-
-.grid img:hover{
-transform:scale(1.05);
-box-shadow:0 12px 30px rgba(0,0,0,0.7);
+.gallery-card::after{
+  content:"";
+  position:absolute; top:0; left:-100%;
+  width:50%; height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.6), transparent);
+  transform:skewX(-20deg);
 }
+.gallery-card:hover::after{animation:shine 1s forwards;}
+@keyframes shine{100%{left:150%;}}
 
+/* ===== IMAGE ===== */
+.gallery-card img{
+  width:100%; display:block;
+  filter:blur(12px); transform:scale(1.05);
+  transition:all .6s ease;
+}
+.gallery-card img.loaded{filter:blur(0); transform:scale(1);}
+
+/* ===== TITLE ===== */
+.gallery-title{padding:10px; text-align:center; font-size:14px; color:#ddd; letter-spacing:.5px;}
+
+/* ===== ADD BUTTON ===== */
+.add-cart-btn{
+  position:absolute; bottom:10px; left:50%;
+  transform:translateX(-50%);
+  background:gold; color:black; padding:6px 12px;
+  border:none; border-radius:12px; cursor:pointer;
+  font-weight:bold; z-index:2; font-size:14px;
+}
+.add-cart-btn:hover{background:#ffc107;}
+
+/* ===== FILTER BUTTONS ===== */
+.gallery-filters{text-align:center;margin-top:20px;}
+.filter-btn{
+  padding:8px 18px; margin:6px; border:none;
+  background:#222; color:white; border-radius:20px;
+  cursor:pointer; transition:.3s;
+}
+.filter-btn:hover{background:#444;}
+.filter-btn.active{background:gold;color:black;}
+
+/* ===== LIGHTBOX ===== */
 .lightbox{
-display:none;
-position:fixed;
-z-index:9999;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.95);
-justify-content:center;
-align-items:center;
-flex-direction:column;
-padding:20px;
+  display:none; position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,.96);
+  justify-content:center; align-items:center;
+  flex-direction:column; z-index:9999;
 }
+.lightbox img{max-width:90%; max-height:75%; border-radius:12px; transition:transform .3s ease;}
+.lightbox-caption{margin-top:15px; font-size:18px; color:white;}
+.lightbox-close{position:absolute; top:30px; right:40px; font-size:40px; color:white; cursor:pointer;}
+.lightbox-nav{position:absolute; top:50%; transform:translateY(-50%); font-size:45px; color:white; cursor:pointer; padding:12px;}
+.lightbox-prev{left:30px;} .lightbox-next{right:30px;}
+.slideshow-btn{margin-top:15px; padding:8px 18px; background:gold; border:none; cursor:pointer; border-radius:20px; font-weight:bold;}
 
-.lightbox img{
-max-width:90%;
-max-height:80%;
-border-radius:12px;
-box-shadow:0 20px 40px rgba(0,0,0,0.8);
+/* ===== GLASSMORPHISM CART ===== */
+#cart-sidebar{
+  position:fixed; top:100px; right:20px;
+  width:250px;
+  background:rgba(255,255,255,0.05); backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px; padding:15px; color:white; z-index:999; max-height:70%; overflow:hidden;
 }
+#cart-sidebar h3{text-align:center;margin-bottom:10px;}
+.cart-summary{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
+.cart-items{max-height:220px; overflow-y:auto;}
+.cart-item{display:flex; align-items:center; margin-bottom:8px;}
+.cart-item img{width:40px; height:40px; object-fit:cover; border-radius:6px; margin-right:8px;}
+.cart-item-details{flex:1;}
+.remove-cart-btn{background:red; color:white; border:none; padding:2px 6px; border-radius:6px; font-size:12px; cursor:pointer; margin-top:4px;}
+#cart-total{text-align:center; font-weight:bold; font-size:16px; margin-top:5px;}
+#cart-buttons{margin-top:10px; display:flex; justify-content:space-between;}
+#cart-buttons button{flex:1; margin:0 2px; padding:6px; border:none; border-radius:8px; font-weight:bold; cursor:pointer;}
+#remove-all-btn{background:red;color:white;} #checkout-btn{background:gold;color:black;}
 
-.lightbox-caption{
-margin-top:15px;
-color:white;
-font-size:18px;
-letter-spacing:1px;
-opacity:0.9;
+/* ===== ADD-TO-CART SUCCESS POPUP ===== */
+#cart-popup{
+  position:fixed; bottom:40px; left:50%; transform:translateX(-50%);
+  background:gold; color:black; padding:12px 20px; border-radius:10px; font-weight:bold;
+  opacity:0; transition:all .4s ease; z-index:4000;
 }
-
-.lightbox-close{
-position:absolute;
-top:30px;
-right:40px;
-font-size:40px;
-color:white;
-cursor:pointer;
-}
-
-.lightbox-nav{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:45px;
-color:white;
-cursor:pointer;
-padding:10px 20px;
-user-select:none;
-}
-
-.lightbox-prev{
-left:30px;
-}
-
-.lightbox-next{
-right:30px;
-}
-
-.lightbox-nav:hover{
-opacity:0.7;
-}
-
+#cart-popup.show{opacity:1; bottom:60px;}
 </style>
-
 </head>
-
 <body>
 
-<nav>
-<div class="logo">
-<a href="index.html">
-<img src="assets/logo.png" alt="Nizie Piercing Logo">
-</a>
+<div id="cart-popup">Item added to cart ✓</div>
+
+<!-- Floating Cart -->
+<div id="floating-cart" onclick="scrollToCart()">
+<i class="fa-solid fa-shopping-cart"></i>
+<div id="floating-cart-count">0</div>
 </div>
 
+<nav>
+<div class="logo"><a href="index.html"><img src="assets/logo.png"></a></div>
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
 <ul id="nav-links">
 <li><a href="index.html">Home</a></li>
 <li><a href="About.html">About</a></li>
 <li><a href="Services.html">Services</a></li>
 <li><a href="Gallery.html">Gallery</a></li>
-<li><a href="Contact.html">Contact</a></li>
+<li><a href="BookAppointment.html">Book Appointment</a></li>
 </ul>
 </nav>
 
-<div class="hero" style="background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-url('assets/hero.png') center/cover no-repeat;">
+<div class="hero" style="background:linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)),url('assets/hero.png') center/cover no-repeat;">
 <h2>Our Gallery</h2>
 <p>Precision Work • Luxury Results</p>
 </div>
 
 <section>
-
 <h2>Piercing Gallery</h2>
-
 <div class="gallery-filters">
-
 <button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="ear">Ear Piercings</button>
-<button class="filter-btn" data-filter="nose">Nose Piercings</button>
-<button class="filter-btn" data-filter="belly">Belly Piercings</button>
-<button class="filter-btn" data-filter="facial">Facial Piercings</button>
-
+<button class="filter-btn" data-filter="ear">Ear</button>
+<button class="filter-btn" data-filter="nose">Nose</button>
+<button class="filter-btn" data-filter="belly">Belly</button>
+<button class="filter-btn" data-filter="body">Body</button>
 </div>
 
+<div class="gallery-grid" id="galleryGrid">
 
-<div class="gallery-grid">
+<div class="gallery-card gallery-item ear" data-title="Conch Piercing" data-price="80" data-src="assets/conch.jpg">
+<img src="assets/conch.jpg" loading="lazy"><div class="gallery-title">Conch Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
 
-<img src="assets/conch.jpg" class="gallery-item ear" alt="Professional Conch Ear Piercing" data-caption="Conch Piercing" loading="lazy">
-<img src="assets/belly7.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/helix.jpg" class="gallery-item ear" alt="Helix Ear Piercing" data-caption="Helix Piercing" loading="lazy">
-<img src="assets/ear2.jpeg" class="gallery-item ear" alt="Flat Ear Piercing" data-caption="Flat Piercing" loading="lazy">
-<img src="assets/belly4.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/belly5.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/ear1.jpg" class="gallery-item ear" alt="Flat Ear Piercing" data-caption="Flat Piercing" loading="lazy">
-<img src="assets/nose2.jpeg" class="gallery-item nose" alt="Nose Piercing Studio Work" data-caption="Nose Piercing" loading="lazy">
-<img src="assets/septum.jpg" class="gallery-item nose" alt="Septum Piercing Professional Work" data-caption="Septum Piercing" loading="lazy">
-<img src="assets/nose1.jpeg" class="gallery-item nose" alt="Nose Piercing Studio Work" data-caption="Nose Piercing" loading="lazy">
-<img src="assets/belly1.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/belly2.jpeg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/ear3.jpeg" class="gallery-item ear" alt="Tragus Ear Piercing" data-caption="Tragus Piercing" loading="lazy">
-<img src="assets/belly3.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
-<img src="assets/belly6.jpg" class="gallery-item belly" alt="Belly Button Piercing" data-caption="Belly Piercing" loading="lazy">
+<div class="gallery-card gallery-item body" data-title="Sternum Piercing" data-price="150" data-src="assets/sturnum.jpeg">
+<img src="assets/sturnum.jpeg" loading="lazy"><div class="gallery-title">Sturnum Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item ear" data-title="Helix Piercing" data-price="100" data-src="assets/helix.jpg">
+<img src="assets/helix.jpg" loading="lazy"><div class="gallery-title">Helix Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item ear" data-title="Flat Piercing" data-price="80" data-src="assets/ear1.jpg">
+<img src="assets/ear1.jpg" loading="lazy"><div class="gallery-title">Flat Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item belly" data-title="Belly Piercing" data-price="150" data-src="assets/belly7.jpeg">
+<img src="assets/belly7.jpeg" loading="lazy"><div class="gallery-title">Belly Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+
+<div class="gallery-card gallery-item nose" data-title="Nose Piercing" data-price="100" data-src="assets/nose1.jpg">
+<img src="assets/nose1.jpg" loading="lazy"><div class="gallery-title">Nose Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item belly" data-title="Belly Piercing" data-price="150" data-src="assets/belly1.jpg">
+<img src="assets/belly1.jpg" loading="lazy"><div class="gallery-title">Belly Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item belly" data-title="Belly Jewelry" data-price="150" data-src="assets/belly2.jpeg">
+<img src="assets/belly2.jpeg" loading="lazy"><div class="gallery-title">Belly Jewelry</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item belly" data-title="Luxury Belly" data-price="150" data-src="assets/belly3.jpg">
+<img src="assets/belly3.jpg" loading="lazy"><div class="gallery-title">Luxury Belly</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item nose" data-title="Nose Stud" data-price="100" data-src="assets/nose2.jpeg">
+<img src="assets/nose2.jpeg" loading="lazy"><div class="gallery-title">Nose Stud</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item belly" data-title="Belly Piercing" data-price="150" data-src="assets/belly4.jpg">
+<img src="assets/belly4.jpg" loading="lazy"><div class="gallery-title">Belly Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item belly" data-title="Belly Piercing" data-price="150" data-src="assets/belly5.jpg">
+<img src="assets/belly5.jpg" loading="lazy"><div class="gallery-title">Belly Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item nose" data-title="Septum" data-price="100" data-src="assets/septum.jpg">
+<img src="assets/septum.jpg" loading="lazy"><div class="gallery-title">Septum</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item ear" data-title="Tragus" data-price="80" data-src="assets/ear3.jpeg">
+<img src="assets/ear3.jpeg" loading="lazy"><div class="gallery-title">Tragus</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item ear" data-title="Tragus" data-price="80" data-src="assets/ear2.jpeg">
+<img src="assets/ear2.jpeg" loading="lazy"><div class="gallery-title">Tragus</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
+
+<div class="gallery-card gallery-item belly" data-title="Belly Piercing" data-price="150" data-src="assets/belly6.jpg">
+<img src="assets/belly6.jpg" loading="lazy"><div class="gallery-title">Belly Piercing</div>
+<button class="add-cart-btn" onclick="addToCart(this)">Add to Cart</button></div>
 
 
 </div>
-
 </section>
 
 <div id="lightbox" class="lightbox">
-
 <span class="lightbox-close" onclick="closeLightbox()">×</span>
-
-<span class="lightbox-nav lightbox-prev" onclick="prevImage()">❮</span> <span class="lightbox-nav lightbox-next" onclick="nextImage()">❯</span>
-
-<img id="lightbox-im1g">
+<span class="lightbox-nav lightbox-prev" onclick="prevImage()">❮</span>
+<span class="lightbox-nav lightbox-next" onclick="nextImage()">❯</span>
+<img id="lightbox-img">
 <div id="lightbox-caption" class="lightbox-caption"></div>
+<button class="slideshow-btn" onclick="toggleSlideshow()">Start Slideshow</button>
+</div>
 
+<div id="cart-sidebar">
+<h3>Cart</h3>
+<div class="cart-summary">
+<span id="cart-count">0 items</span>
+<span id="cart-total">R0</span>
+</div>
+<div class="cart-items" id="cart-items"></div>
+<div id="cart-buttons">
+<button id="remove-all-btn" onclick="removeAllCart()">Remove All</button>
+<button id="checkout-btn" onclick="checkoutCart()"><i class="fa-solid fa-credit-card"></i> Proceed to Checkout</button>
+</div>
 </div>
 
 <footer class="premium-footer">
-
 <p>© 2026 Nizie Piercing</p>
-
 <p class="developer-credit">
-Website Designed & Developed by
-<a href="https://nunu-dev.netlify.app/" target="_blank">Lwandiso Nunu</a>
-|
-<a href="https://nunu-dev.netlify.app/" target="_blank">View Portfolio</a>
+Website Designed & Developed by <a href="https://nunu-dev.netlify.app/" target="_blank">Lwandiso Nunu</a> | <a href="https://nunu-dev.netlify.app/" target="_blank">View Portfolio</a>
 </p>
-
 </footer>
 
-<a href="https://wa.me/27680266883" class="whatsapp-float" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-
 <script>
+window.onload=()=>document.body.classList.add("loaded");
 
-function toggleMenu(){
-document.getElementById("nav-links").classList.toggle("active");
-}
+/* MENU */
+function toggleMenu(){document.getElementById("nav-links").classList.toggle("active");}
 
-window.addEventListener("scroll", function(){
-const nav = document.querySelector("nav");
-nav.classList.toggle("scrolled", window.scrollY > 50);
+/* IMAGE LOAD */
+document.querySelectorAll(".gallery-card img").forEach(img=>{img.onload=()=>img.classList.add("loaded");});
+
+/* FILTERS */
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelector(".filter-btn.active").classList.remove("active");
+    btn.classList.add("active");
+    const filter=btn.dataset.filter;
+    document.querySelectorAll(".gallery-item").forEach(item=>{
+      item.style.display=(filter==="all"||item.classList.contains(filter))?"block":"none";
+    });
+  });
 });
 
-const lazyImages=document.querySelectorAll(".gallery-grid img");
-
-lazyImages.forEach(img=>{
-img.onload=()=>{
-img.classList.add("loaded");
-}
-});
-
-const images=document.querySelectorAll(".gallery-grid img");
+/* LIGHTBOX */
+let images=document.querySelectorAll(".gallery-card img");
 const lightbox=document.getElementById("lightbox");
 const lightboxImg=document.getElementById("lightbox-img");
 const caption=document.getElementById("lightbox-caption");
-
 let currentIndex=0;
+images.forEach((img,index)=>img.addEventListener("click",()=>{
+  lightboxImg.src=img.src;
+  caption.textContent=img.closest(".gallery-card").dataset.title;
+  lightbox.style.display="flex";
+  currentIndex=index;
+}));
+function nextImage(){currentIndex=(currentIndex+1)%images.length; updateLightbox();}
+function prevImage(){currentIndex=(currentIndex-1+images.length)%images.length; updateLightbox();}
+function updateLightbox(){const img=images[currentIndex]; lightboxImg.src=img.src; caption.textContent=img.closest(".gallery-card").dataset.title;}
+function closeLightbox(){lightbox.style.display="none"; stopSlideshow();}
+let slideshow=null;
+function toggleSlideshow(){if(slideshow){stopSlideshow();}else{slideshow=setInterval(nextImage,3000);}}
+function stopSlideshow(){clearInterval(slideshow); slideshow=null;}
 
-images.forEach((img,index)=>{
-
-img.addEventListener("click",()=>{
-
-lightbox.style.display="flex";
-lightboxImg.src=img.src;
-caption.textContent=img.dataset.caption;
-currentIndex=index;
-
-});
-
-});
-
-function closeLightbox(){
-lightbox.style.display="none";
+/* CART */
+let cart=JSON.parse(localStorage.getItem("cart")||"[]");
+function scrollToCart(){document.getElementById("cart-sidebar").scrollIntoView({behavior:"smooth"});}
+function showPopup(){const p=document.getElementById("cart-popup"); p.classList.add("show"); setTimeout(()=>p.classList.remove("show"),1500);}
+function flyToCart(img){const cartIcon=document.getElementById("floating-cart"); const flyImg=img.cloneNode(true); flyImg.classList.add("fly-item"); document.body.appendChild(flyImg); const start=img.getBoundingClientRect(); const end=cartIcon.getBoundingClientRect(); flyImg.style.top=start.top+"px"; flyImg.style.left=start.left+"px"; setTimeout(()=>{flyImg.style.top=end.top+"px"; flyImg.style.left=end.left+"px"; flyImg.style.opacity="0"; flyImg.style.transform="scale(.2)";},10); setTimeout(()=>flyImg.remove(),800);}
+function addToCart(btn){const card=btn.closest(".gallery-card"); const img=card.querySelector("img"); flyToCart(img); showPopup(); const item={title:card.dataset.title, price:parseInt(card.dataset.price), src:card.dataset.src}; cart.push(item); localStorage.setItem("cart",JSON.stringify(cart)); renderCart();}
+function removeCartItem(index){cart.splice(index,1); localStorage.setItem("cart",JSON.stringify(cart)); renderCart();}
+function removeAllCart(){cart=[]; localStorage.setItem("cart",JSON.stringify(cart)); renderCart();}
+function checkoutCart(){if(cart.length===0){alert("Your cart is empty."); return;} window.location.href="BookAppointment.html";}
+function renderCart(){
+  const container=document.getElementById("cart-items");
+  const count=document.getElementById("cart-count");
+  const totalEl=document.getElementById("cart-total");
+  const floating=document.getElementById("floating-cart-count");
+  container.innerHTML=""; let total=0;
+  cart.forEach(item=>total+=item.price);
+  count.innerText=`${cart.length} item${cart.length!==1?'s':''}`;
+  floating.innerText=cart.length; totalEl.innerText="R"+total;
+  cart.slice(-3).forEach((item,i)=>{
+    const div=document.createElement("div");
+    div.className="cart-item";
+    div.innerHTML=`<img src="${item.src}"><div class="cart-item-details"><span>${item.title}</span><span>R${item.price}</span><button class="remove-cart-btn" onclick="removeCartItem(${cart.length-3+i})">Remove</button></div>`;
+    container.appendChild(div);
+  });
 }
-
-
-function nextImage(){
-
-currentIndex++;
-
-if(currentIndex>=images.length){
-currentIndex=0;
-}
-
-updateLightbox();
-
-}
-
-function prevImage(){
-
-currentIndex--;
-
-if(currentIndex<0){
-currentIndex=images.length-1;
-}
-
-updateLightbox();
-
-}
-
-function updateLightbox(){
-
-lightboxImg.src=images[currentIndex].src;
-caption.textContent=images[currentIndex].dataset.caption;
-
-}
-
-document.addEventListener("keydown",function(e){
-
-if(lightbox.style.display==="flex"){
-
-if(e.key==="ArrowRight") nextImage();
-if(e.key==="ArrowLeft") prevImage();
-if(e.key==="Escape") closeLightbox();
-
-}
-
-});
-
-const filterBtns=document.querySelectorAll(".filter-btn");
-const galleryItems=document.querySelectorAll(".gallery-item");
-
-filterBtns.forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-document.querySelector(".filter-btn.active").classList.remove("active");
-btn.classList.add("active");
-
-const filter=btn.dataset.filter;
-
-galleryItems.forEach(item=>{
-
-if(filter==="all"){
-item.style.display="block";
-}
-else{
-if(item.classList.contains(filter)){
-item.style.display="block";
-}
-else{
-item.style.display="none";
-}
-}
-
-});
-
-});
-
-});
-
+renderCart();
 </script>
-
 </body>
 </html>
