@@ -20,6 +20,85 @@
 <link rel="stylesheet" href="style.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+.section-intro{
+  max-width:900px;
+  margin:0 auto 50px;
+  text-align:center;
+  opacity:.8;
+  line-height:1.8;
+}
+
+.service-list{
+  list-style:none;
+  margin-top:1rem;
+}
+
+.service-list li{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.service-list strong{
+  color:var(--gold);
+}
+
+.pricing-note{
+  text-align:center;
+  margin-top:50px;
+  opacity:.75;
+}
+
+.about-cta{
+  text-align:center;
+  padding:120px 20px;
+}
+
+.about-cta h2{
+  margin-bottom:20px;
+}
+
+.about-cta p{
+  opacity:.8;
+  margin-bottom:35px;
+}
+
+.collection-btn{
+  display:inline-block;
+  padding:16px 38px;
+  border:1px solid var(--gold);
+  border-radius:50px;
+  color:var(--gold);
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.35s;
+}
+
+.collection-btn:hover{
+  background:var(--gold);
+  color:black;
+}
+
+@media(max-width:768px){
+
+  .service-list li{
+    font-size:14px;
+  }
+
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  transition:.3s;
+}
+
+</style>
 </head>
 
 <body>
@@ -50,6 +129,11 @@ url('assets/hero.png') center/cover no-repeat;">
 
 <section>
 <h2>Piercing Services & Pricing</h2>
+<p class="section-intro">
+All procedures are performed using sterile, single-use equipment and
+professional techniques to ensure safety, comfort, and exceptional results.
+Pricing includes standard jewelry and professional aftercare guidance.
+</p>
 
 <div class="grid">
 
@@ -83,6 +167,53 @@ url('assets/hero.png') center/cover no-repeat;">
   </div>
 
 </div>
+</section>
+
+<section>
+
+<h2>Every Service Includes</h2>
+<p class="section-intro">
+Every appointment is designed to provide a safe, professional, and comfortable experience from consultation to aftercare.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>Sterile Equipment</h3>
+<p>
+Single-use needles and hospital-grade hygiene standards.
+</p>
+</div>
+
+<div class="card">
+<h3>Professional Consultation</h3>
+<p>
+Personalized placement guidance based on anatomy and style.
+</p>
+</div>
+
+<div class="card">
+<h3>Aftercare Guidance</h3>
+<p>
+Detailed instructions to support proper healing and long-term results.
+</p>
+</div>
+
+</div>
+
+</section>
+<section class="about-cta">
+
+<h2>Ready To Book?</h2>
+
+<p>
+Browse our gallery to explore styles and choose the perfect piercing.
+</p>
+
+<a href="Gallery.html" class="collection-btn">
+Explore Our Gallery
+</a>
+
 </section>
 
 <footer class="premium-footer">

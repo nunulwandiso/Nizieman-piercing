@@ -20,6 +20,90 @@
 <link rel="stylesheet" href="style.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.section-intro{
+    max-width:900px;
+    margin:0 auto 50px;
+    text-align:center;
+    opacity:.8;
+    line-height:1.8;
+}
+
+.signature{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+    padding:100px 20px;
+}
+
+.signature h2{
+    margin-bottom:25px;
+}
+
+.signature p{
+    line-height:1.9;
+    opacity:.8;
+}
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.stat h2{
+    color:var(--gold);
+    font-size:3rem;
+}
+
+.stat p{
+    opacity:.7;
+}
+
+.about-cta{
+    text-align:center;
+    padding:120px 20px;
+}
+
+.about-cta h2{
+    margin-bottom:20px;
+}
+
+.about-cta p{
+    opacity:.8;
+    margin-bottom:35px;
+}
+
+.collection-btn{
+    display:inline-block;
+    padding:16px 38px;
+    border:1px solid var(--gold);
+    border-radius:50px;
+    color:var(--gold);
+    text-decoration:none;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    transition:.35s;
+}
+
+.collection-btn:hover{
+    background:var(--gold);
+    color:black;
+}
+
+@media(max-width:768px){
+
+    .stats{
+        flex-direction:column;
+        gap:30px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -44,14 +128,23 @@
 
 <div class="hero" style="background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
 url('assets/hero.png') center/cover no-repeat;">
-  <h2>About Nizie Piercing</h2>
-  <p>Luxury. Precision. Professionalism.</p>
+  <h2>Where Precision Meets Artistry</h2>
+  <p>Luxury Piercing Crafted For Confidence</p>
 </div>
 
 <section>
+
   <h2>Our Story</h2>
 
+  <p class="section-intro">
+    Nizie Piercing was founded with a vision to elevate body piercing through
+    exceptional hygiene standards, precision craftsmanship, and a luxury client
+    experience. Every service is performed with the belief that confidence
+    begins with quality.
+  </p>
+
   <div class="grid">
+
     <div class="card">
       <h3>Our Mission</h3>
       <p>
@@ -75,7 +168,86 @@ url('assets/hero.png') center/cover no-repeat;">
         artistry, and client confidence.
       </p>
     </div>
+
   </div>
+
+</section>
+
+<section class="signature">
+
+  <h2>The Nizie Standard</h2>
+
+  <p>
+    At Nizie Piercing, every procedure is performed with a commitment to
+    precision, safety, and client confidence. We believe that a piercing
+    is more than a service — it is a personal expression that deserves
+    professional care, attention to detail, and an elevated experience.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>Why Clients Choose Nizie</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Professional Hygiene</h3>
+      <p>
+        Single-use sterile equipment and strict safety protocols.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Premium Experience</h3>
+      <p>
+        Comfortable consultations and meticulous attention to detail.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Expert Precision</h3>
+      <p>
+        Every placement is tailored to anatomy and aesthetics.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="stats">
+
+  <div class="stat">
+    <h2>100+</h2>
+    <p>Successful Piercings</p>
+  </div>
+
+  <div class="stat">
+    <h2>100%</h2>
+    <p>Sterile Equipment</p>
+  </div>
+
+  <div class="stat">
+    <h2>5★</h2>
+    <p>Client Satisfaction</p>
+  </div>
+
+</section>
+
+<section class="about-cta">
+
+  <h2>Ready To Elevate Your Look?</h2>
+
+  <p>
+    Explore our collection and discover the perfect piercing for your style.
+  </p>
+
+  <a href="Gallery.html" class="collection-btn">
+    View Our Collection
+  </a>
+
 </section>
 
 <footer class="premium-footer">

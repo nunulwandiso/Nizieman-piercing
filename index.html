@@ -1,364 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nizie Piercing | Ultra Luxury Piercing Studio</title>
+  <title>Nizie Piercing | Ultra Luxury Piercing Studio</title>
 
-<meta name="description" content="Nizie Piercing is a luxury piercing studio offering professional body piercing, jewelry, and safe hygienic procedures.">
-<meta name="keywords" content="piercing studio, body piercing, ear piercing, luxury piercing studio, professional piercer">
-<meta name="author" content="Lwandiso Nunu">
+  <meta name="description"
+    content="Nizie Piercing is a luxury piercing studio offering professional body piercing, jewelry, and safe hygienic procedures.">
+  <meta name="keywords"
+    content="piercing studio, body piercing, ear piercing, luxury piercing studio, professional piercer">
+  <meta name="author" content="Lwandiso Nunu">
 
-<meta name="developer" content="Developed by Lwandiso Nunu">
+  <meta name="developer" content="Developed by Lwandiso Nunu">
 
-<link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
 
-<meta property="og:title" content="Nizie Piercing | Ultra Luxury Studio">
-<meta property="og:description" content="Luxury body piercing studio offering safe professional piercings.">
-<meta property="og:image" content="logo.png">
-<meta property="og:type" content="website">
+  <meta property="og:title" content="Nizie Piercing | Ultra Luxury Studio">
+  <meta property="og:description" content="Luxury body piercing studio offering safe professional piercings.">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:type" content="website">
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
+  <style>
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
+        url("assets/hero.png") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-.hero {
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-              url("assets/hero.png") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-}
+    .hero-content {
+      max-width: 800px;
+    }
 
-.hero-content {
-  max-width: 800px;
-}
+    .hero h1 {
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-.hero h1 {
-  font-size: 3.5rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-bottom: 40px;
+    }
 
-.hero p {
-  font-size: 1.2rem;
-  opacity: 0.85;
-  margin-bottom: 40px;
-}
+    .hero .btn {
+      padding: 14px 40px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--gold);
+      transition: all 0.4s ease;
+    }
 
-.hero .btn {
-  padding: 14px 40px;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border: 1px solid var(--gold);
-  background: rgba(0,0,0,0.6);
-  color: var(--gold);
-  transition: all 0.4s ease;
-}
+    .hero .btn:hover {
+      background: var(--gold);
+      color: black;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+    }
 
-.hero .btn:hover {
-  background: var(--gold);
-  color: black;
-  box-shadow: 0 0 25px rgba(212,175,55,0.6);
-}
+    .signature {
+      padding: 100px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
 
-.signature {
-  padding: 100px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-}
+    .signature h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
 
-.signature h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
-}
+    .signature p {
+      opacity: 0.75;
+      line-height: 1.8;
+    }
 
-.signature p {
-  opacity: 0.75;
-  line-height: 1.8;
-}
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 80px 20px;
+      text-align: center;
+    }
 
+    @media(max-width:768px) {
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 40px;
-  padding: 80px 10%;
-}
+      .stats {
+        flex-direction: column;
+        gap: 30px;
+      }
 
-.card {
-  background: #111;
-  padding: 40px;
-  border: 1px solid #222;
-  transition: all 0.4s ease;
-}
+    }
 
-.card:hover {
-  transform: translateY(-10px);
-  border-color: var(--gold);
-}
+    .stats h2 {
+      color: var(--gold);
+      font-size: 3rem;
+    }
 
-.card h3 {
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-}
+    .stats p {
+      opacity: .7;
+    }
 
-.card p {
-  opacity: 0.7;
-  font-size: 14px;
-}
+    .featured-services {
+      padding: 100px 20px;
+      text-align: center;
+    }
 
-.testimonial {
-  padding: 120px 20px;
-  background: #0d0d0d;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
+    .featured-services h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
 
-.testimonial-container {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-}
+    .featured-services p {
+      opacity: .75;
+    }
 
-.testimonial-slide {
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out;
-}
+    .service-card {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
 
-.testimonial-slide.active {
-  opacity: 1;
-  position: relative;
-}
+    .service-card::after {
+      content: "View Collection →";
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+      color: var(--gold);
+      opacity: 0;
+      transition: .3s;
+    }
 
-.testimonial p {
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.9;
-  opacity: 0.85;
-}
+    .service-card:hover::after {
+      opacity: 1;
+    }
 
-.testimonial span {
-  display: block;
-  margin-top: 25px;
-  letter-spacing: 2px;
-  font-size: 13px;
-  opacity: 0.6;
-}
+    .service-card:hover {
+      box-shadow: 0 15px 35px rgba(212, 175, 55, .15);
+    }
 
-</style>
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform .4s ease;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .collection-btn {
+      display: inline-block;
+      margin-top: 20px;
+
+      padding: 16px 38px;
+
+      border: 1px solid var(--gold);
+      border-radius: 50px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all .35s ease;
+    }
+
+    .collection-btn:hover {
+      background: var(--gold);
+      color: black;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, .3);
+    }
+
+    .section-subtitle {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      opacity: .75;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 80px 10%;
+    }
+
+    .card {
+      background: #111;
+      padding: 40px;
+      border: 1px solid #222;
+      transition: all 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .card p {
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    .testimonial {
+      padding: 120px 20px;
+      background: #0d0d0d;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-heading {
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 60px;
+      font-size: 2rem;
+    }
+
+    .testimonial-container {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .testimonial-slide {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .testimonial-slide.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.9;
+      opacity: 0.85;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 25px;
+      letter-spacing: 2px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  </style>
 
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">
-    <a href="index.html">
-      <img src="assets/logo.png" alt="Nizie Logo">
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Nizie Logo">
+      </a>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Services.html">Services</a></li>
+      <li><a href="Gallery.html">Gallery</a></li>
+      <li><a href="BookAppointment.html">Book Appointment</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div><i>
+          <h1 id="typing-text"></h1>
+        </i></div>
+      <a href="Gallery.html" class="btn">Explore Our Services</a>
+    </div>
+  </section>
+
+  <section class="signature">
+    <h2>Crafted With Precision</h2>
+    <p>
+      At Nizie Piercing, we redefine body art through precision, sterile excellence,
+      and a curated luxury experience. Every piercing is placed with anatomical accuracy
+      and artistic intention — because confidence deserves perfection.
+    </p>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h3>Hospital-Grade Hygiene</h3>
+        <p>Single-use sterile needles and premium sterilization protocols.</p>
+      </div>
+      <div class="card">
+        <h3>Refined Environment</h3>
+        <p>Minimal, calm, private and designed for comfort.</p>
+      </div>
+      <div class="card">
+        <h3>Luxury Precision</h3>
+        <p>Expert placement tailored to your anatomy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <h2>100+</h2>
+      <p>Successful Piercings</p>
+    </div>
+
+    <div class="stat">
+      <h2>100%</h2>
+      <p>Sterile Equipment</p>
+    </div>
+
+    <div class="stat">
+      <h2>5★</h2>
+      <p>Client Satisfaction</p>
+    </div>
+  </section>
+
+  <section class="featured-services">
+
+    <h2>Most Requested Piercings</h2>
+    <p class="section-subtitle">
+      Explore some of our most sought-after piercing styles.
+    </p>
+
+    <div class="grid">
+
+      <div class="card service-card" onclick="window.location.href='Gallery.html'">
+        <img src="assets/ear3.jpeg" alt="Helix Piercing">
+        <h3>Helix Piercing</h3>
+        <p>Timeless ear piercing crafted to elevate your style with refined elegance.</p>
+      </div>
+
+      <div class="card service-card" onclick="window.location.href='Gallery.html'">
+        <img src="assets/sturnum.jpeg" alt="Sternum Piercing">
+        <h3>Sternum Piercing</h3>
+        <p>Elegant surface piercing designed to accentuate the chest with refined sophistication.</p>
+      </div>
+
+      <div class="card service-card" onclick="window.location.href='Gallery.html'">
+        <img src="assets/labrat.jpg" alt="Vertical Labret Piercing">
+        <h3>Vertical Labret Piercing</h3>
+        <p>Precision-placed vertical labret piercing crafted for comfort and aesthetic balance.</p>
+      </div>
+
+    </div>
+    <a href="Gallery.html" class="collection-btn">
+      View Full Collection
     </a>
-  </div>
+  </section>
 
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <section class="testimonial">
+    <h2 class="testimonial-heading">
+      Client Experiences
+    </h2>
+    <div class="testimonial-container">
 
-  <ul id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="About.html">About</a></li>
-    <li><a href="Services.html">Services</a></li>
-    <li><a href="Gallery.html">Gallery</a></li>
-    <li><a href="BookAppointment.html">Book Appointment</a></li>
-  </ul>
-</nav>
+      <div class="testimonial-slide active">
+        <p>
+          “From the moment I arrived, everything felt intentional and refined.
+          The hygiene standards were exceptional, and the precision was flawless.”
+        </p>
+        <span>— Thando M.</span>
+      </div>
 
-<section class="hero">
-  <div class="hero-content">
-    <div><i><h1 id="typing-text"></h1></i></div>
-    <a href="BookAppointment.html" class="btn">Reserve Your Appointment</a>
-  </div>
-</section>
+      <div class="testimonial-slide">
+        <p>
+          “Professional, calm, and incredibly meticulous.
+          The attention to detail and luxury atmosphere made the entire experience outstanding.”
+        </p>
+        <span>— Aphiwe K.</span>
+      </div>
 
-<section class="signature">
-  <h2>Crafted With Precision</h2>
-  <p>
-    At Nizie Piercing, we redefine body art through precision, sterile excellence, 
-    and a curated luxury experience. Every piercing is placed with anatomical accuracy 
-    and artistic intention — because confidence deserves perfection.
-  </p>
-</section>
+      <div class="testimonial-slide">
+        <p>
+          “The entire experience felt private, calm, and exceptionally professional.
+          The environment alone reflects true luxury standards.”
+        </p>
+        <span>— Naledi S.</span>
+      </div>
 
-<section>
-  <div class="grid">
-    <div class="card">
-      <h3>Hospital-Grade Hygiene</h3>
-      <p>Single-use sterile needles and premium sterilization protocols.</p>
-    </div>
-    <div class="card">
-      <h3>Refined Environment</h3>
-      <p>Minimal, calm, private and designed for comfort.</p>
-    </div>
-    <div class="card">
-      <h3>Luxury Precision</h3>
-      <p>Expert placement tailored to your anatomy.</p>
-    </div>
-  </div>
-</section>
+      <div class="testimonial-slide">
+        <p>
+          “Clean, elegant, and highly professional.
+          It’s rare to find this level of care and refinement in one place.”
+        </p>
+        <span>— Verified Client</span>
+      </div>
 
-<section class="testimonial">
+      <div class="testimonial-slide">
+        <p>
+          “The process was smooth, professional, and incredibly reassuring.
+          Every detail was handled with care, making the experience both comfortable and memorable.”
+        </p>
+        <span>— Zinhle P.</span>
+      </div>
 
-  <div class="testimonial-container">
+      <div class="testimonial-slide">
+        <p>
+          “From consultation to aftercare advice, everything was explained clearly.
+          The professionalism and attention to detail exceeded my expectations.”
+        </p>
+        <span>— Ayanda N.</span>
+      </div>
 
-    <div class="testimonial-slide active">
-      <p>
-        “From the moment I arrived, everything felt intentional and refined.
-        The hygiene standards were exceptional, and the precision was flawless.”
-      </p>
-      <span>— Thando M.</span>
-    </div>
+      <div class="testimonial-slide">
+        <p>
+          “Exceptional cleanliness, expert guidance, and flawless execution.
+          I left feeling more confident than ever with the results.”
+        </p>
+        <span>— Sibusiso T.</span>
+      </div>
 
-    <div class="testimonial-slide">
-      <p>
-        “Professional, calm, and incredibly meticulous.
-        The attention to detail and luxury atmosphere made the entire experience outstanding.”
-      </p>
-      <span>— Aphiwe K.</span>
-    </div>
+      <div class="testimonial-slide">
+        <p>
+          “An unmatched level of professionalism and cleanliness.
+          The experience felt exclusive and refined from start to finish.”
+        </p>
+        <span>— Verified Client</span>
+      </div>
 
-    <div class="testimonial-slide">
-  <p>
-    “The entire experience felt private, calm, and exceptionally professional.
-    The environment alone reflects true luxury standards.”
-  </p>
-  <span>— Naledi S.</span>
-</div>
-
-<div class="testimonial-slide">
-  <p>
-    “Clean, elegant, and highly professional.
-    It’s rare to find this level of care and refinement in one place.”
-  </p>
-  <span>— Verified Client</span>
-</div>
-
-<div class="testimonial-slide">
-  <p>
-    “Clean, elegant, and highly professional.
-    It’s rare to find this level of care and refinement in one place.”
-  </p>
-  <span>— Verified Client</span>
-</div>
-
-    <div class="testimonial-slide">
-      <p>
-        “An unmatched level of professionalism and cleanliness.
-        The experience felt exclusive and refined from start to finish.”
-      </p>
-      <span>— Verified Client</span>
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <footer class="premium-footer">
 
-<footer class="premium-footer">
+    <p>© 2026 Nizie Piercing</p>
 
-<p>© 2026 Nizie Piercing</p>
-
-<p class="developer-credit">
-    Website Designed & Developed by
-    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+    <p class="developer-credit">
+      Website Designed & Developed by
+      <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
         Lwandiso Nunu
-    </a>
-    |
-    <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
+      </a>
+      |
+      <a href="https://nunu-dev.netlify.app/" target="_blank" rel="noopener noreferrer">
         View Portfolio
-    </a>
-</p>
+      </a>
+    </p>
 
-</footer> 
+  </footer>
 
-<a href="https://wa.me/27680266883" class="whatsapp-float" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
+  <a href="https://wa.me/27680266883" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-<script>
-function toggleMenu(){
-  document.getElementById("nav-links").classList.toggle("active");
-}
-</script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("active");
+    }
+  </script>
 
-<script>
-const slides = document.querySelectorAll(".testimonial-slide");
-let currentSlide = 0;
+  <script>
+    const slides = document.querySelectorAll(".testimonial-slide");
+    let currentSlide = 0;
 
-function showNextSlide() {
-  slides[currentSlide].classList.remove("active");
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add("active");
-}
+    function showNextSlide() {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }
 
-setInterval(showNextSlide, 5000); // changes every 5 seconds, but is that enough? Will answer that on deployment or as time goes while in production
-</script>
+    setInterval(showNextSlide, 5000); // changes every 5 seconds, but is that enough? Will answer that on deployment or as time goes while in production
+  </script>
 
-<script>
-const text = "Elevate your look.\nEmbrace your story";
-const typingElement = document.getElementById("typing-text");
+  <script>
+    const text = "Luxury Piercing.\nPrecision Without Compromise";
+    const typingElement = document.getElementById("typing-text");
 
-let index = 0;
+    let index = 0;
 
-function typeText() {
+    function typeText() {
 
-  typingElement.style.opacity = 1;
+      typingElement.style.opacity = 1;
 
-  if(index < text.length){
+      if (index < text.length) {
 
-    typingElement.textContent += text.charAt(index);
+        typingElement.textContent += text.charAt(index);
 
-    index++;
+        index++;
 
-    let speed = text.charAt(index) === "\n" ? 400 : 60;
+        let speed = text.charAt(index) === "\n" ? 400 : 60;
 
-    setTimeout(typeText, speed);
+        setTimeout(typeText, speed);
 
-  } else {
+      } else {
 
-    setTimeout(resetText, 4000);
+        setTimeout(resetText, 4000);
 
-  }
+      }
 
-}
+    }
 
-function resetText(){
+    function resetText() {
 
-  typingElement.style.opacity = 0;
+      typingElement.style.opacity = 0;
 
-  setTimeout(() => {
+      setTimeout(() => {
 
-    typingElement.textContent = "";
+        typingElement.textContent = "";
 
-    index = 0;
+        index = 0;
 
-    typeText();
+        typeText();
 
-  }, 800);
+      }, 800);
 
-}
+    }
 
-window.addEventListener("load", typeText);
-</script>
+    window.addEventListener("load", typeText);
+  </script>
 
 </body>
+
 </html>
